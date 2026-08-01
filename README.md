@@ -38,4 +38,3 @@ Password strength: Strong
 
 Honestly before this I didn't even know `secrets` was a module, I would've just used `random` like normal. Learned why that's actually a bad idea for passwords/security stuff since random's numbers aren't "truly" random, they can be predicted if someone knows the seed.
 
-Also learned about entropy and how it's actually calculated, before this I just thought "longer password = more secure" without really knowing the math behind why.
