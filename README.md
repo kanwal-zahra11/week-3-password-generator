@@ -1,26 +1,30 @@
-# Random Password Generator
+# Password Generator (Project 3)
 
-A simple Python command-line tool that generates a secure, random password based on a length entered by the user.
+This is a small Python project I made where the program creates a random password for you. You just tell it how long you want the password and it does the rest.
 
-## Features
-- Asks the user for the desired password length (4–64 characters, 15+ recommended)
-- Generates a random password using letters, numbers, and special characters
-- Makes sure the password always has at least one letter, one number, and one symbol
-- Calculates the password's entropy (in bits) and shows its strength rating (Very Weak to Very Strong)
-- Uses Python's `secrets` module instead of `random` for cryptographically secure randomness
+## What it does
 
-## Modules Used
-- `secrets` – generates cryptographically secure random choices
-- `string` – provides ready-made character sets (letters, digits, punctuation)
-- `math` – used to calculate password entropy
+- Asks you how long you want your password (anywhere from 4 to 64 characters, though 15+ is what's actually recommended for it to be secure)
+- Randomly picks letters, numbers, and symbols to build the password
+- Double checks the password has at least one letter, one number and one symbol in it, if not it just generates again
+- At the end it also tells you the entropy of the password (basically a number that tells how hard it would be to guess/crack) and gives it a rating from Very Weak to Very Strong
 
-## How to Run
+## Modules I used
+
+- `secrets` - this is what actually picks the random characters. I initially thought of using `random` but turns out that one isn't actually safe for passwords since it can be predicted, `secrets` is the proper one to use for this kind of stuff
+- `string` - just has the letters/numbers/symbols already defined so I didn't have to type them all out manually
+- `math` - used this for the entropy calculation (log2 stuff)
+
+## How to run it
+
 ```bash
 python password_generator_student_symbols.py
 ```
-Then enter the desired password length when prompted.
 
-## Example Output
+it'll just ask you for a length and print out the password after that.
+
+## Example
+
 ```
 Enter password length (4-64, 15+ recommended by NIST): 16
 
@@ -30,8 +34,8 @@ Entropy value: 104.9 bits
 Password strength: Strong
 ```
 
-## What I Learned
-- How to work with Python's built-in `secrets` and `string` modules
-- Why `secrets` is safer than `random` for generating passwords
-- How password entropy is calculated and what it means for password strength
-- Basic input validation to handle bad user input
+## Things I learned while doing this
+
+Honestly before this I didn't even know `secrets` was a module, I would've just used `random` like normal. Learned why that's actually a bad idea for passwords/security stuff since random's numbers aren't "truly" random, they can be predicted if someone knows the seed.
+
+Also learned about entropy and how it's actually calculated, before this I just thought "longer password = more secure" without really knowing the math behind why.
